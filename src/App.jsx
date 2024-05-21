@@ -1,11 +1,24 @@
-import react from 'react';
+import { useState, useEffect } from 'react'
+import * as PetService from './services/petService'
 
-function App()
-{
+function App() {
+
+  const [petList, setPetList] = useState([])
+
+  const getPets = async () => {
+    const allPets = await PetService.index()
+    setPetList(allPets)
+  }
+
+  useEffect(()=>{
+    getPets()
+  }, [])
+  
   return (
-    <h1> this is my test</h1>
-    <Home />
-    <Create />
-    <Show />
-  );
+    <>
+      <Home {...{petList}}/>
+    </>
+  )
 }
+
+export default App
