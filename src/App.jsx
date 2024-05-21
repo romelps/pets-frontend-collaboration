@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import * as PetService from './services/petService'
 import Home from './components/home'
 import Create from './components/create'
+import Nav from './components/nav'
 
 function App() {
 
@@ -27,8 +28,13 @@ function App() {
     setPage('show')
   }
 
+  const clickedNavLink = (page) => {
+    setPage(page)
+  }
+
   return (
     <>
+      <Nav {...{clickedNavLink}} />
       {page === 'home' && <Home {...{petList, handleClick}}/>}
       {page === 'create' && <Create {...{handleCreate}} />}
       {page === 'show' && <Show {...{selectedPet}} />}
