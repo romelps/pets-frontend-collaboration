@@ -1,6 +1,6 @@
 
 
-function Show({ selectedPet }) {
+function Show({ selectedPet, handleDelete }) {
   return (
     <>
         <h1>{ selectedPet.name }</h1>
