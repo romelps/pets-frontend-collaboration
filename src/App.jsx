@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import * as PetService from './services/petService'
+import Home from './components/home'
 
 function App() {
 
