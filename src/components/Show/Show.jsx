@@ -8,6 +8,7 @@ function Show({ selectedPet }) {
                 <li>Breed: { selectedPet.breed }</li>
                 <li>Age: { selectedPet.age }</li>
             </ul>
+            <button onClick={() => handleDelete(selectedPet._id)}>Delete</button>
     </>
   );
 }
