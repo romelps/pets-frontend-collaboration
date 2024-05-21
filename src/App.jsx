@@ -3,6 +3,7 @@ import * as PetService from './services/petService'
 import Home from './components/home'
 import Create from './components/create'
 import Nav from './components/nav'
+import Show from './components/Show/Show'
 
 function App() {
 
@@ -32,12 +33,18 @@ function App() {
     setPage(page)
   }
 
+  const handleDelete = async (petId) => {
+    await PetService.deletePet(petId)
+    getPets()
+    setPage('home')
+  }
+
   return (
     <>
       <Nav {...{clickedNavLink}} />
       {page === 'home' && <Home {...{petList, handleClick}}/>}
       {page === 'create' && <Create {...{handleCreate}} />}
-      {page === 'show' && <Show {...{selectedPet}} />}
+      {page === 'show' && <Show {...{selectedPet, handleDelete}} />}
     </>
   )
 }
